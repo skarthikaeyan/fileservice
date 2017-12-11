@@ -38,16 +38,15 @@ try:
                             data.close()
                             sock.close()
                             sys.exit()
+            if found==0:
+                print(fname+" not Found..")
+                data.close()
+                sock.close()
+                break
 
-        if found==0:
-            print(fname+" not Found..")
-            data.close()
-            sock.close()
-            break
-
-except socket.error as se:
-    print(str(se))
-    sys.exit()
+    except socket.error as se:
+        print(str(se))
+        sys.exit()
 
 except KeyboardInterrupt as e:
     print("User terminated")
