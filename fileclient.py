@@ -22,11 +22,11 @@ try:
         data=s.recv(1024)
 
         if not data:
-            print("File not found, Check spelling(case sensitive)")
+            print("File not found, Check spelling case sensitive ")
             s.close()
             break
         #if data is not returned from the server side it may not be there.
-        downfile=open("newfile","wb")
+        downfile=open(fname,"wb")
 
         while data:
             downfile.write(data)
