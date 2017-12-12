@@ -15,9 +15,14 @@ try:
         sock.listen(10)
         print("Waiting for connection")
         found=0
+        data,addr=sock.accept()
+        arr=os.listdir("workspace/")
+        dat=str(arr)
+        dat.encode()
+        data.send(dat)
 
         while True:
-            data,addr=sock.accept()
+
             print("Connected to"+str(addr))
             fname=data.recv(1024)
 
