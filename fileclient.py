@@ -1,5 +1,6 @@
 import socket
 import sys
+import string
 try:
 #try block for KeyboardInterrupt
     try:
@@ -12,7 +13,13 @@ try:
     except socket.error as se:
         print("Can't Connect "+str(se))
         sys.exit()
-
+    da= s.recv(1024)
+    if not da:
+        print("Directory empty :(")
+        sys.exit()
+    da=str(da)
+    da=da.replace('[]',' ')
+    print("Files available: "+da+"\n")
     fname=raw_input("Enter File name: ")
 
     while True:
